@@ -1,0 +1,17 @@
+.classpath
+.class
+.war
+.jar
+.ear
+
+.zip
+.rar
+
+.idea
+.imp
+
+.project
+.settings/*
+
+/core/target/*
+/web/target/*

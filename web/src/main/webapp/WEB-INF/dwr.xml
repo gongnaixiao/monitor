@@ -1,0 +1,13 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN"
+    "http://directwebremoting.org/schema/dwr30.dtd">
+<dwr>
+    <allow>
+        <create creator="spring" javascript="UserManager">
+            <param name="class" value="cn.lesaas.service.UserManager"/>
+            <param name="beanName" value="userManager"/>
+            <include method="getUsers"/>
+        </create>
+        <convert converter="bean" match="cn.lesaas.model.User"/>
+    </allow>
+</dwr>
