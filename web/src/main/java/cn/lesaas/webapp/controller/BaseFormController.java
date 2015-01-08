@@ -1,11 +1,12 @@
 package cn.lesaas.webapp.controller;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import cn.lesaas.Constants;
 import cn.lesaas.model.User;
 import cn.lesaas.service.MailEngine;
 import cn.lesaas.service.UserManager;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,7 +44,7 @@ import java.util.Map;
 public class BaseFormController implements ServletContextAware {
     public static final String MESSAGES_KEY = "successMessages";
     public static final String ERRORS_MESSAGES_KEY = "errors";
-    protected final transient Log log = LogFactory.getLog(getClass());
+    protected final transient Logger log = LoggerFactory.getLogger(getClass());
     private UserManager userManager = null;
     protected MailEngine mailEngine = null;
     protected SimpleMailMessage message = null;

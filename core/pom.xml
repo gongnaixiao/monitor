@@ -32,7 +32,7 @@
 						<drop>true</drop>
 						<jdk5>true</jdk5>
 						<propertyfile>${project.build.testOutputDirectory}/jdbc.properties</propertyfile>
-						<!--<skip>${skipTests}</skip>-->
+						<!--<skip>${skipTests}</skip> -->
 					</componentProperties>
 				</configuration>
 				<executions>
@@ -63,8 +63,8 @@
 					<url>${jdbc.url}</url>
 					<src>src/test/resources/sample-data.xml</src>
 					<type>${dbunit.operation.type}</type>
-					<!--<schema>${dbunit.schema}</schema>-->
-					<!--<skip>${skipTests}</skip>-->
+					<!--<schema>${dbunit.schema}</schema> -->
+					<!--<skip>${skipTests}</skip> -->
 					<transaction>true</transaction>
 				</configuration>
 				<executions>
@@ -140,24 +140,6 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>mail</artifactId>
-					<groupId>javax.mail</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>jms</artifactId>
-					<groupId>javax.jms</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>jmxtools</artifactId>
-					<groupId>com.sun.jdmk</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>jmxri</artifactId>
-					<groupId>com.sun.jmx</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
@@ -274,8 +256,17 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -339,8 +330,8 @@
 						<artifactId>dbunit-maven-plugin</artifactId>
 						<configuration>
 							<src>src/main/resources/default-data.xml</src>
-                            <url/>
-                        </configuration>
+							<url />
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>

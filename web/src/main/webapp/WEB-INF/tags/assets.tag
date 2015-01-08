@@ -13,8 +13,9 @@
 
 	<c:when test="${sessionScope.debugAssets}">
 		<!--
-		<link rel="stylesheet" type="text/css" href="${base}/webjars/bootswatch/3.0.0/spacelab/bootstrap.min.css"/>
-        -->
+		<link rel="stylesheet" type="text/css"
+			href="${base}/webjars/bootswatch/3.0.0/assets/bootstrap.min.css" />
+		-->
         <link rel="stylesheet" type="text/css" href="${base}/styles/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="${base}/styles/style.css" />
 

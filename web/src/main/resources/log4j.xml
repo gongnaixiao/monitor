@@ -62,7 +62,7 @@
     </logger>
 
     <logger name="cn.lesaas">
-        <level value="DEBUG"/>
+        <level value="TRACE"/>
     </logger>
 
     <logger name="cn.lesaas.tool">

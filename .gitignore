@@ -12,6 +12,8 @@
 
 .project
 .settings/*
+/core/.settings/*
+/web/.settings/*
 
 /core/target/*
 /web/target/*

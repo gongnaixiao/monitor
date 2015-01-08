@@ -1,7 +1,7 @@
 package cn.lesaas.webapp.listener;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;  
+import org.slf4j.LoggerFactory;  
 import cn.lesaas.Constants;
 import cn.lesaas.service.GenericManager;
 import cn.lesaas.service.LookupManager;
@@ -37,8 +37,8 @@ import java.util.jar.Manifest;
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
 public class StartupListener implements ServletContextListener {
-    private static final Log log = LogFactory.getLog(StartupListener.class);
-
+    private static final Logger log = LoggerFactory.getLogger(StartupListener.class);
+    
     /**
      * {@inheritDoc}
      */
