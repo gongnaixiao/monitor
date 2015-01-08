@@ -7,8 +7,8 @@
 	<artifactId>monitor</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>AppFuse Modular Application</name>
-	<url>http://www.mycompany.com</url>
+	<name>monitor Application</name>
+	<url>http://lesaas.cn</url>
 
 	<prerequisites>
 		<maven>3.1.0</maven>
@@ -124,17 +124,7 @@
 				<enabled>true</enabled>
 			</releases>
 			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id> Maven Central repository</id>
-			<url>http://repo1.maven.org/maven2</url>
-			<releases>
 				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 	</repositories>
