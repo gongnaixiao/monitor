@@ -1,17 +1,17 @@
 package cn.lesaas.webapp.util;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Convenience class for setting and retrieving cookies.
  */
 public final class RequestUtil {
-    private static final Log log = LogFactory.getLog(RequestUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(RequestUtil.class);
 
     /**
      * Checkstyle rule: utility classes should not have public constructor

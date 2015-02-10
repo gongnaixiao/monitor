@@ -121,10 +121,7 @@
 						<configuration>
 							<encoding>UTF8</encoding>
 							<includes>
-								<include>ApplicationResources_el*.properties</include>
 								<include>ApplicationResources_zh*.properties</include>
-								<include>ApplicationResources_ko*.properties</include>
-								<include>displaytag_el*.properties</include>
 								<include>displaytag_zh*.properties</include>
 							</includes>
 						</configuration>
@@ -166,6 +163,11 @@
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-osb</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>${commons.dbcp.version}</version>
@@ -203,8 +205,6 @@
 				<exclusion>
 					<artifactId>jcl104-over-slf4j</artifactId>
 					<groupId>org.slf4j</groupId>
-				</exclusion>
-				<exclusion>
 				</exclusion>
 			</exclusions>
 		</dependency>

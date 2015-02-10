@@ -1,10 +1,11 @@
 package cn.lesaas.service;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import cn.lesaas.Constants;
 import cn.lesaas.model.User;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class UserManagerTest extends BaseManagerTestCase {
-    private Log log = LogFactory.getLog(UserManagerTest.class);
+    private Logger log = LoggerFactory.getLogger(UserManagerTest.class);
     @Autowired
     private UserManager mgr;
     @Autowired
@@ -24,7 +25,7 @@ public class UserManagerTest extends BaseManagerTestCase {
         user = mgr.getUserByUsername("user");
         assertNotNull(user);
         
-        log.debug(user);
+        log.debug(user.toString());
         assertEquals(1, user.getRoles().size());
     }
 
@@ -62,7 +63,7 @@ public class UserManagerTest extends BaseManagerTestCase {
             user = mgr.getUserByUsername("john");
             fail("Expected 'Exception' not thrown");
         } catch (Exception e) {
-            log.debug(e);
+            log.debug(e.toString());
             assertNotNull(e);
         }
     }

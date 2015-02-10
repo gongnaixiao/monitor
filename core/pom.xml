@@ -13,7 +13,7 @@
 
 	<artifactId>monitor-core</artifactId>
 	<packaging>jar</packaging>
-	<name>AppFuse Modular Application - Core</name>
+	<name>monitor - Core</name>
 
 	<build>
 		<plugins>

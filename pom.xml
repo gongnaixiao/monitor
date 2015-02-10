@@ -114,6 +114,7 @@
 	<modules>
 		<module>core</module>
 		<module>web</module>
+		<module>osb</module>
 	</modules>
 
 	<repositories>

@@ -1,12 +1,14 @@
 package cn.lesaas.webapp.taglib;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import cn.lesaas.Constants;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -32,7 +34,7 @@ import java.util.Map;
  */
 public class ConstantsTag extends TagSupport {
     private static final long serialVersionUID = 3258417209566116146L;
-    private final Log log = LogFactory.getLog(ConstantsTag.class);
+    private final Logger log = LoggerFactory.getLogger(ConstantsTag.class);
 
     /**
      * The class to expose the variables from.

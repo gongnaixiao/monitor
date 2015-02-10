@@ -1,9 +1,11 @@
 package cn.lesaas.service;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
 import cn.lesaas.util.ConvertUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 
@@ -26,7 +28,7 @@ public abstract class BaseManagerTestCase extends AbstractTransactionalJUnit4Spr
     /**
      * A simple logger
      */
-    protected final Log log = LogFactory.getLog(getClass());
+    protected final Logger log = LoggerFactory.getLogger(getClass());
     /**
      * The resourceBundle
      */

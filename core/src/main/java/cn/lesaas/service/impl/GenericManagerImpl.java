@@ -1,9 +1,10 @@
 package cn.lesaas.service.impl;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import cn.lesaas.dao.GenericDao;
 import cn.lesaas.service.GenericManager;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
@@ -49,7 +50,7 @@ public class GenericManagerImpl<T, PK extends Serializable> implements GenericMa
     /**
      * Log variable for all child classes. Uses LogFactory.getLog(getClass()) from Commons Logging
      */
-    protected final Log log = LogFactory.getLog(getClass());
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     /**
      * GenericDao instance, set by constructor of child classes
