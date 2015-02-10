@@ -1,0 +1,4 @@
+cn\lesaas\osb\LoadResTest.class
+cn\lesaas\osb\service\WlsInfQueryTest.class
+cn\lesaas\osb\JMXconnectTest.class
+cn\lesaas\osb\service\MonitoredServicesTest.class

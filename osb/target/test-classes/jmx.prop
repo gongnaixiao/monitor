@@ -1,0 +1,4 @@
+username=weblogic
+password=welcome2
+jmxurl=service:jmx:t3://172.16.2.120:7001/jndi/weblogic.management.mbeanservers.domainruntime
+#jmxurl=service:jmx:rmi:///jndi/iiop://172.16.2.120:7001/weblogic.management.mbeanservers.domainruntime
