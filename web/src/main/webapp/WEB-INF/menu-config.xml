@@ -5,7 +5,12 @@
 			type="net.sf.navigator.displayer.VelocityMenuDisplayer" />
 	</Displayers>
 	<Menus>
-		<Menu name="Home" title="home.title" page="/home" roles="ROLE_ADMIN,ROLE_USER" />
+		<Menu name="Home" title="home.title" page="/home" roles="ROLE_ADMIN,ROLE_USER">
+			<Item name="Services" title="monitor.services" page="/monitor/services"
+				roles="ROLE_ADMIN, ROLE_USER" />
+			<Item name="Servers" title="monitor.servers" page="/monitor"
+				roles="ROLE_ADMIN, ROLE_USER" />
+		</Menu>
 		<Menu name="UserMenu" title="menu.user" description="User Menu"
 			page="/userform" roles="ROLE_ADMIN,ROLE_USER" />
 		<Menu name="AdminMenu" title="menu.admin" description="Admin Menu"

@@ -12,26 +12,23 @@ import javax.naming.Context;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class OSBJMXConnection {
-	private static Properties prop = new Properties();
-	private final static String JMXPROPNAME = "jmx.prop";
-	static {
-		InputStream in = ClassLoader.getSystemResourceAsStream(JMXPROPNAME);
-		try {
-			prop.load(in);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				in.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+	private String jmxurl;
+	private String username;
+	private String password;
+
+	public void setJmxurl(String jmxurl) {
+		this.jmxurl = jmxurl;
 	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	private JMXConnector conn;
 
 	public JMXConnector getConnection(String jmxurl, String username,
@@ -49,9 +46,6 @@ public class OSBJMXConnection {
 
 	public JMXConnector getConnection() throws IOException {
 		if (conn == null) {
-			String username = prop.getProperty("username");
-			String password = prop.getProperty("password");
-			String jmxurl = prop.getProperty("jmxurl");
 			conn = getConnection(jmxurl, username, password);
 		}
 		return this.conn;
@@ -63,9 +57,9 @@ public class OSBJMXConnection {
 
 	public synchronized void setConncetion(String jmxurl, String username,
 			String password) throws IOException {
-		prop.setProperty("username", username);
-		prop.setProperty("password", password);
-		prop.setProperty("jmxurl", jmxurl);
+		this.username = username;
+		this.password = password;
+		this.jmxurl = jmxurl;
 
 		conn = getConnection(jmxurl, username, password);
 	}

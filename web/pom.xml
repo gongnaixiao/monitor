@@ -13,7 +13,7 @@
 
 	<artifactId>monitor-web</artifactId>
 	<packaging>war</packaging>
-	<name>AppFuse Modular Application - Web (Spring MVC)</name>
+	<name>Monitor Modular Application - Web (Spring MVC)</name>
 
 	<build>
 		<plugins>
@@ -425,6 +425,18 @@
 					<groupId>velocity-tools</groupId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<!-- json -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-lgpl</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-lgpl</artifactId>
+			<version>1.8.1</version>
 		</dependency>
 	</dependencies>
 

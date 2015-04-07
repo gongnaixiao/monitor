@@ -1,7 +1,0 @@
-cn\lesaas\osb\service\impl\WlsInfQueryImpl.class
-cn\lesaas\osb\model\WlsInf.class
-cn\lesaas\osb\model\ServiceInf.class
-cn\lesaas\osb\service\MonitoredServices.class
-cn\lesaas\osb\service\WlsInfQuery.class
-cn\lesaas\osb\service\impl\MonitoredServicesImpl.class
-cn\lesaas\osb\service\impl\OSBJMXConnection.class

@@ -1,83 +1,84 @@
 <%@ include file="/common/taglibs.jsp"%>
 
 <head>
-<title></title>
+<title>monitor</title>
 <script>
 	var xmlHttp;
+	var id;
 	function createXMLHttpRequest() {
 		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-			xmlhttp = new XMLHttpRequest();
+			xmlHttp = new XMLHttpRequest();
 		} else {// code for IE6, IE5
-			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 	}
 
 	function doStart() {
 		createXMLHttpRequest();
-
-		var queryString = "WS.asmx/DynamicUpdate?task=reset";
-		xmlHttp.onreadystatechange = handleStateChange;
-		xmlHttp.open("GET", queryString, true);
-		xmlHttp.send(null);
-	}
-	function handleStateChange() {
-		if (xmlHttp.readyState == 4) {
-			if (xmlHttp.status == 200) {
-				setTimeout("pollServer", 5000);
-				refreshTime();
-			}
-		}
-	}
-	function pollServer() {
-		var queryString = "WS.asmx/DynamicUpdate?task=foo";
 		xmlHttp.onreadystatechange = pollCallback;
-		xmlHttp.open("GET", queryString, true);
-		xmlHttp.send(null);
-	}
-	function refreshTime() {
-		var time_span = document.getElementById("time");
-		var time_val = time_span.innerHTML;
-		var int_val = parseInt(time_val);
-		var new_int_val = int_val - 1;
-		if (new_int_val > -1) {
-			setTimeout("refreshTime()", 1000);
-			time_span.innerHTML = new_int_val;
-		} else {
-			time_span.innerHTML = 5
-		}
+		xmlHttp.open("GET", "monitor/services", true);
+		xmlHttp.send();
 	}
 
 	function pollCallback() {
 		if (xmlHttp.readyState == 4) {
 			if (xmlHttp.status == 200) {
-				var message = xmlHttp.responseXML
-						.getElementsByTagName("message")[0].firstChild.data;
-				if (message == "done") {
-					var new_row = createRow(message);
-					var table = document.getElementById("dynamicUpdateArea");
-					var table_body = table.getElementsByTagName("tbody")
-							.item(0);
-					var first_row = table_body.getElementsByTagName("tr").item(
-							1);
-					table_body.insertBefore(new_row, first_row);
-					setTimeout("pollServer", 5000);
-					refreshTime();
+				var text = xmlHttp.responseText;
+				var list = JSON.parse(text);
+				var table = document.getElementById("dynamicUpdateArea");
+				var rowCount = table.rows.length;
+				if (rowCount > 1) {
+					for (var i = 1; i < rowCount; i++) {
+						table.deleteRow(1);
+					}
+				}
 
+				for (var j = 0; j < list.length; j++) {
+					var newRow = table.insertRow(j + 1);
+					newRow.insertCell(0).innerHTML = list[j].name;
+					newRow.insertCell(1).innerHTML = list[j].path;
+					newRow.insertCell(2).innerHTML = list[j].serviceType;
+					newRow.insertCell(3).innerHTML = list[j].avgRespTime;
+					newRow.insertCell(4).innerHTML = list[j].minRespTime;
+					newRow.insertCell(5).innerHTML = list[j].maxRespTime;
+					newRow.insertCell(6).innerHTML = list[j].messagesCounts;
+					newRow.insertCell(7).innerHTML = list[j].erroCounts;
 				}
 			}
 		}
 	}
-	function createRow(message) {
-		var row = document.createElement("tr");
-		var cell = document.createElement("td");
-		var cell_data = document.createTextNode(message);
-		cell.appendChild(cell_data);
-		return row;
+
+	function refreshTime() {
+		var time = document.getElementById("time").value;
+		if (id != null && id != undefined) {
+			clearInterval(id);
+		}
+		id = setInterval("doStart()", time * 1000);
 	}
 </script>
 </head>
 
 <body id="monitoredServices">
+	<div class="col-sm-10">
+		<label><fmt:message key="monitor.refresh" /></label> <input id="time"
+			type="time" value="5" onchange="refreshTime()"></input>
+		<table id="dynamicUpdateArea"
+			class="table table-condensed table-striped table-hover">
+			<tr id="row0">
+				<th>Name</th>
+				<th>Path</th>
+				<th>Service Type</th>
+				<th>Avg. Resp. Time</th>
+				<th>Min. Resp. Time</th>
+				<th>Max. Resp. Time</th>
+				<th>Messages</th>
+				<th>Errors</th>
+			</tr>
+		</table>
+	</div>
 
-	<div class="col-sm-10"></div>
+	<script type="text/javascript">
+		id = setInterval("doStart()",
+				document.getElementById("time").value * 1000);
+	</script>
 </body>

@@ -12,7 +12,8 @@ import cn.lesaas.osb.model.ServiceInf;
 
 import com.bea.wli.monitoring.MonitoringException;
 
-@ContextConfiguration(locations = { "classpath*:/**/applicationContext.xml" })
+@ContextConfiguration(locations = { "classpath*:/**/applicationContext.xml",
+		"classpath:/applicationContext-resources.xml" })
 public class MonitoredServicesTest extends AbstractJUnit4SpringContextTests {
 
 	@Autowired

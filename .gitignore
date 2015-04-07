@@ -17,3 +17,4 @@
 
 /core/target/*
 /web/target/*
+/core/cn.lesaas.model.User/*
