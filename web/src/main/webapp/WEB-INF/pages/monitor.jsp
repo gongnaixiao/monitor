@@ -43,6 +43,7 @@
 					newRow.insertCell(5).innerHTML = list[j].maxRespTime;
 					newRow.insertCell(6).innerHTML = list[j].messagesCounts;
 					newRow.insertCell(7).innerHTML = list[j].erroCounts;
+					newRow.insertCell(8).innerHTML = list[j].successRate;
 				}
 			}
 		}
@@ -73,6 +74,7 @@
 				<th>Max. Resp. Time</th>
 				<th>Messages</th>
 				<th>Errors</th>
+				<th>Success. Rate</th>
 			</tr>
 		</table>
 	</div>

@@ -78,7 +78,7 @@ public class MonitoredServicesImpl implements MonitoredServices {
 	@Override
 	public List getStatisticsForMonitoredServices() throws Exception {
 		ServiceDomainMBean sdmb = (ServiceDomainMBean) findServiceDomain();
-
+		System.out.println(sdmb);
 		List<ServiceInf> monitoredService = new ArrayList<ServiceInf>();
 
 		int typeFlag;
@@ -157,6 +157,14 @@ public class MonitoredServicesImpl implements MonitoredServices {
 						if ("error-count".equalsIgnoreCase(value.getName())) {
 							StatisticValue.CountStatistic cs = (StatisticValue.CountStatistic) value;
 							service.setErrosCounts(cs.getCount());
+						}
+						if ("success-rate".equalsIgnoreCase(value.getName())) {
+							StatisticValue.CountStatistic cs = (StatisticValue.CountStatistic) value;
+							service.setSuccessRate(cs.getCount());
+						}
+						if ("failure-rate".equalsIgnoreCase(value.getName())) {
+							StatisticValue.CountStatistic cs = (StatisticValue.CountStatistic) value;
+							service.setFailureRate(cs.getCount());
 						}
 					}
 				}

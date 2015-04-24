@@ -9,6 +9,8 @@ public class ServiceInf {
 	private long maxRespTime;
 	private long messagesCounts;
 	private long errosCounts;
+	private long successRate;
+	private long failureRate;
 	
 	public void setName(String name) {
 		this.name = name;
@@ -62,5 +64,23 @@ public class ServiceInf {
 	}
 	public long getErroCounts() {
 		return this.errosCounts;
+	}
+	
+
+	public void setSuccessRate(long successRate) {
+		this.successRate = successRate;
+	}
+	public long getSuccessRate() {
+		return this.successRate;
+	}
+	
+	public void setFailureRate(long failureRate)
+	{
+		this.failureRate = failureRate;
+	}
+	
+	public long getFailureRate()
+	{
+		return this.failureRate;
 	}
 }
