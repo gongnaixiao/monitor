@@ -2,6 +2,7 @@
 
 <head>
 <title>monitor</title>
+<meta name="menu" content="MonitorMenu" />
 <script>
 	var xmlHttp;
 	var id;
@@ -16,7 +17,7 @@
 	function doStart() {
 		createXMLHttpRequest();
 		xmlHttp.onreadystatechange = pollCallback;
-		xmlHttp.open("GET", "monitor/services", true);
+		xmlHttp.open("GET", "/monitor/servicesInfo", true);
 		xmlHttp.send();
 	}
 
@@ -58,27 +59,24 @@
 </script>
 </head>
 
-<body id="monitoredServices">
-	<div class="col-sm-10">
-		<label><fmt:message key="monitor.refresh" /></label> <input id="time"
-			type="time" value="5" onchange="refreshTime()"></input>
-		<table id="dynamicUpdateArea"
-			class="table table-condensed table-striped table-hover">
-			<tr id="row0">
-				<th>Name</th>
-				<th>Path</th>
-				<th>Service Type</th>
-				<th>Avg. Resp. Time</th>
-				<th>Min. Resp. Time</th>
-				<th>Max. Resp. Time</th>
-				<th>Messages</th>
-				<th>Errors</th>
-			</tr>
-		</table>
-	</div>
+<div class="col-sm-10">
+	<label><fmt:message key="monitor.refresh" /></label> <input id="time"
+		type="time" value="5" onchange="refreshTime()"></input>
+	<table id="dynamicUpdateArea"
+		class="table table-condensed table-striped table-hover">
+		<tr id="row0">
+			<th>Name</th>
+			<th>Path</th>
+			<th>Service Type</th>
+			<th>Avg. Resp. Time</th>
+			<th>Min. Resp. Time</th>
+			<th>Max. Resp. Time</th>
+			<th>Messages</th>
+			<th>Errors</th>
+		</tr>
+	</table>
+</div>
 
-	<script type="text/javascript">
-		id = setInterval("doStart()",
-				document.getElementById("time").value * 1000);
-	</script>
-</body>
+<script type="text/javascript">
+	id = setInterval("doStart()", document.getElementById("time").value * 1000);
+</script>

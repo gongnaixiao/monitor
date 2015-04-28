@@ -16,7 +16,7 @@
 	<!-- Add rules here for anything that shouldn't be served up by Spring MVC. -->
 	<rule>
 		<from>/</from>
-		<to type="redirect" last="true">home</to>
+		<to type="redirect" last="true">/monitor/servers</to>
 	</rule>
 	<rule>
 		<from>/app/**</from>
@@ -53,6 +53,14 @@
 	<rule>
 		<from>/styles/**</from>
 		<to>/styles/$1</to>
+	</rule>
+	<rule>
+		<from>/DataTables-1.10.6/**</from>
+		<to>/DataTables-1.10.6/$1</to>
+	</rule>
+		<rule>
+		<from>/FixedHeader-2.1.2/**</from>
+		<to>/FixedHeader-2.1.2/$1</to>
 	</rule>
 	<rule>
 		<from>/webjars/**</from>

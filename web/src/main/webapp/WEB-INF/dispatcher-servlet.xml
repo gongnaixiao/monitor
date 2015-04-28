@@ -38,7 +38,8 @@
 	<mvc:view-controller path="/admin/activeUsers"
 		view-name="admin/activeUsers" />
 	<mvc:view-controller path="/home" view-name="home" />
-	<mvc:view-controller path="/monitor" view-name="monitor" />
+	<mvc:view-controller path="/monitor/services" view-name="monitor/services" />
+	<mvc:view-controller path="/monitor/servers" view-name="monitor/servers" />
 
 	<!-- View Resolver for JSPs -->
 	<bean id="viewResolver"
