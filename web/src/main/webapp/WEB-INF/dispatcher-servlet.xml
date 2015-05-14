@@ -39,6 +39,8 @@
 		view-name="admin/activeUsers" />
 	<mvc:view-controller path="/home" view-name="home" />
 	<mvc:view-controller path="/monitor" view-name="monitor" />
+	<mvc:view-controller path="/esbtrace" view-name="esbtrace" />
+	
 
 	<!-- View Resolver for JSPs -->
 	<bean id="viewResolver"

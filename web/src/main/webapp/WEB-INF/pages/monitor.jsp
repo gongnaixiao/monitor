@@ -61,20 +61,20 @@
 
 <body id="monitoredServices">
 	<div class="col-sm-10">
-		<label><fmt:message key="monitor.refresh" /></label> <input id="time"
+		<fmt:message key="monitor.refresh" /> <input id="time"
 			type="time" value="5" onchange="refreshTime()"></input>
 		<table id="dynamicUpdateArea"
 			class="table table-condensed table-striped table-hover">
 			<tr id="row0">
-				<th>Name</th>
-				<th>Path</th>
-				<th>Service Type</th>
-				<th>Avg. Resp. Time</th>
-				<th>Min. Resp. Time</th>
-				<th>Max. Resp. Time</th>
-				<th>Messages</th>
-				<th>Errors</th>
-				<th>Success. Rate</th>
+				<th><fmt:message key="monitor.name" /></th>
+				<th><fmt:message key="monitor.path" /></th>
+				<th><fmt:message key="monitor.serviceType"/></th>
+				<th><fmt:message key="monitor.avgRespTime"/></th>
+				<th><fmt:message key="monitor.minRespTime"/></th>
+				<th><fmt:message key="monitor.maxRespTime" /></th>
+				<th><fmt:message key="monitor.messagesCounts" /></th>
+				<th><fmt:message key="monitor.erroCounts" /></th>
+				<th><fmt:message key="monitor.successRate" /></th>
 			</tr>
 		</table>
 	</div>

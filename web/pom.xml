@@ -17,7 +17,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>dbunit-maven-plugin</artifactId>
 				<version>1.0-beta-3</version>
@@ -29,8 +29,8 @@
 					<url>${jdbc.url}</url>
 					<src>src/test/resources/sample-data.xml</src>
 					<type>${dbunit.operation.type}</type>
-					<!--<schema>${dbunit.schema}</schema> -->
-					<!--<skip>${skipTests}</skip> -->
+					<schema>${dbunit.schema}</schema>
+					<skip>${skipTests}</skip>
 					<transaction>true</transaction>
 				</configuration>
 				<executions>
@@ -42,7 +42,7 @@
 						</goals>
 					</execution>
 					<execution>
-						<!-- Runs before integration tests and jetty:run-war -->
+						Runs before integration tests and jetty:run-war
 						<id>test</id>
 						<phase>test</phase>
 						<goals>
@@ -57,7 +57,7 @@
 						<version>${jdbc.version}</version>
 					</dependency>
 				</dependencies>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
@@ -437,6 +437,12 @@
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-lgpl</artifactId>
 			<version>1.8.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.4.0</version>
 		</dependency>
 	</dependencies>
 

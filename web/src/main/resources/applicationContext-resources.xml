@@ -19,7 +19,15 @@
 	</bean>
 
 	<!-- JNDI DataSource for J2EE environments -->
-	<!--<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/appfuse"/> -->
+
+	<!-- <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/xjnxjmsrpDataSource"/> -->
+
+	<!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
+		<property name="jndiName"> <value>xjnxjmsrpDataSource</value> </property> 
+		<property name="jndiEnvironment"> <props> The value of Context.PROVIDER_URL 
+		<prop key="java.naming.provider.url">t3://10.1.45.41:7001</prop> <prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop> 
+		<prop key="java.naming.security.principal">weblogic</prop> <prop key="java.naming.security.credentials">welcome1</prop> 
+		</props> </property> </bean> -->
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -34,6 +42,7 @@
 		<property name="validationQuery" value="${jdbc.validationQuery}" />
 		<property name="testOnBorrow" value="true" />
 	</bean>
+
 
 	<bean id="OSBJMXConnection" class="cn.lesaas.osb.service.impl.OSBJMXConnection">
 		<property name="jmxurl" value="${jmx.jmxurl}" />

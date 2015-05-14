@@ -22,7 +22,7 @@ public class ServicesController {
 	public List handleRequest() throws Exception {
 		List<ServiceInf> list = service.getStatisticsForMonitoredServices();
 		for (ServiceInf inf : list) {
-			System.out.println(String.valueOf(inf.getSuccessRate()));
+			System.out.println(String.valueOf(inf.getName()));
 		}
 		return list;
 	}
