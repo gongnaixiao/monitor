@@ -78,7 +78,7 @@ public class MonitoredServicesImpl implements MonitoredServices {
 	@Override
 	public List getStatisticsForMonitoredServices() throws Exception {
 		ServiceDomainMBean sdmb = (ServiceDomainMBean) findServiceDomain();
-		System.out.println(sdmb);
+
 		List<ServiceInf> monitoredService = new ArrayList<ServiceInf>();
 
 		int typeFlag;
@@ -87,13 +87,15 @@ public class MonitoredServicesImpl implements MonitoredServices {
 		try {
 			Ref[] serviceRefs = sdmb.getMonitoredBusinessServiceRefs();
 			// Create a bitwise map for desired resource types.
-			typeFlag = 0;
-			typeFlag = typeFlag | ResourceType.SERVICE.value();
-			typeFlag = typeFlag | ResourceType.WEBSERVICE_OPERATION.value();
-			typeFlag = typeFlag | ResourceType.URI.value();
-			resourcesMap = sdmb.getBusinessServiceStatistics(serviceRefs,
-					typeFlag, null);
-			monitoredService.addAll(parser(resourcesMap));
+			if (serviceRefs.length > 0) {
+				typeFlag = 0;
+				typeFlag = typeFlag | ResourceType.SERVICE.value();
+				typeFlag = typeFlag | ResourceType.WEBSERVICE_OPERATION.value();
+				typeFlag = typeFlag | ResourceType.URI.value();
+				resourcesMap = sdmb.getBusinessServiceStatistics(serviceRefs,
+						typeFlag, null);
+				monitoredService.addAll(parser(resourcesMap));
+			}
 		} catch (Exception e) {
 			serviceDomainMBean = null;
 			// TODO Auto-generated catch block
@@ -104,15 +106,16 @@ public class MonitoredServicesImpl implements MonitoredServices {
 
 		try {
 			Ref[] serviceRefs = sdmb.getMonitoredProxyServiceRefs();
-			System.out.println(serviceRefs[0].getFullName());
-
-			typeFlag = 0;
-			typeFlag = typeFlag | ResourceType.SERVICE.value();
-			typeFlag = typeFlag | ResourceType.FLOW_COMPONENT.value();
-//			typeFlag = typeFlag | ResourceType.WEBSERVICE_OPERATION.value();
-			resourcesMap = sdmb.getProxyServiceStatistics(serviceRefs,
-					typeFlag, null);
-			monitoredService.addAll(parser(resourcesMap));
+			if (serviceRefs.length > 0) {
+				typeFlag = 0;
+				typeFlag = typeFlag | ResourceType.SERVICE.value();
+				typeFlag = typeFlag | ResourceType.FLOW_COMPONENT.value();
+				// typeFlag = typeFlag |
+				// ResourceType.WEBSERVICE_OPERATION.value();
+				resourcesMap = sdmb.getProxyServiceStatistics(serviceRefs,
+						typeFlag, null);
+				monitoredService.addAll(parser(resourcesMap));
+			}
 		} catch (Exception e) {
 			serviceDomainMBean = null; // TODO Auto-generated catch block
 			e.printStackTrace();
@@ -126,7 +129,7 @@ public class MonitoredServicesImpl implements MonitoredServices {
 			HashMap<Ref, ServiceResourceStatistic> resourcesMap)
 			throws InvalidServiceRefException, MonitoringNotEnabledException,
 			MonitoringException {
-		List<ServiceInf> list = new ArrayList<ServiceInf>(); 
+		List<ServiceInf> list = new ArrayList<ServiceInf>();
 		Set<Map.Entry<Ref, ServiceResourceStatistic>> set = resourcesMap
 				.entrySet();
 		for (Map.Entry<Ref, ServiceResourceStatistic> mapEntry : set) {
@@ -157,14 +160,6 @@ public class MonitoredServicesImpl implements MonitoredServices {
 						if ("error-count".equalsIgnoreCase(value.getName())) {
 							StatisticValue.CountStatistic cs = (StatisticValue.CountStatistic) value;
 							service.setErrosCounts(cs.getCount());
-						}
-						if ("success-rate".equalsIgnoreCase(value.getName())) {
-							StatisticValue.CountStatistic cs = (StatisticValue.CountStatistic) value;
-							service.setSuccessRate(cs.getCount());
-						}
-						if ("failure-rate".equalsIgnoreCase(value.getName())) {
-							StatisticValue.CountStatistic cs = (StatisticValue.CountStatistic) value;
-							service.setFailureRate(cs.getCount());
 						}
 					}
 				}

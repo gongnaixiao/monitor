@@ -22,10 +22,10 @@ public class MonitoredServicesTest extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void getServiceDomainMBeanTest() throws Exception {
 		try {
-
 			List<ServiceInf> list = service.getStatisticsForMonitoredServices();
-			for (ServiceInf inf : list) {
-				System.out.println(inf.getSuccessRate());
+			Iterator<ServiceInf> it = list.iterator();
+			while (it.hasNext()) {
+				System.out.println(it.next().getName());
 			}
 		} catch (MonitoringException e) {
 			// TODO Auto-generated catch block

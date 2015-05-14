@@ -295,6 +295,12 @@
 			<scope>system</scope>
 			<systemPath>${basedir}/../web/src/main/webapp/WEB-INF/lib/sb-kernel-impl.jar</systemPath>
 		</dependency>
+
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.4.0</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>

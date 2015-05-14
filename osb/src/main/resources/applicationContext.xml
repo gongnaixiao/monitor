@@ -13,24 +13,27 @@
 	<context:annotation-config />
 
 	<!-- Activates scanning of @Service -->
-	<context:component-scan base-package="cn.lesaas.osb.service" />
-
-<!-- 	<bean id="jmxConnector"
-		class="org.springframework.jmx.support.MBeanServerConnectionFactoryBean">
-		<property name="serviceUrl"
-			value="service:jmx:rmi:///jndi/iiop://113.31.18.99:7001/weblogic.management.mbeanservers.domainruntime" />
-		<property name="environment">
-			<map>
-				<entry key="javax.naming.Context.SECURITY_PRINCIPAL" value="weblogic" />
-				<entry key="javax.naming.Context.SECURITY_CREDENTIALS" value="welcome2" />
-			</map>
-		</property>
+	<context:component-scan base-package="cn.lesaas.osb" />
+		
+	<!-- Initialization for data source -->
+   <!-- 	<bean id="dataSource" 
+      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+      <property name="url" value="jdbc:oracle:thin:@10.1.45.41:1521:ORA11"/>
+      <property name="username" value="osb"/>
+      <property name="password" value="osb"/>
+   </bean>
+    -->
+   <bean id="EsbTraceJdbcImpl" 
+      class="cn.lesaas.osb.service.impl.EsbTraceDaoImpl">
+      <property name="dataSource"  ref="dataSource" />    
+   </bean>
+   
+<!--    	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost/monitor" />
+		<property name="username" value="root" />
+		<property name="password" value="mysql" />
 	</bean> -->
-<!-- 
-	<bean id="proxy" class="org.springframework.jmx.access.MBeanProxyFactoryBean">
-		<property name="objectName" value="com.bea:Name=ServiceDomain,Type=ServiceDomain" />
-		<property name="proxyInterface" value="com.bea.wli.monitoring.ServiceDomainMBean" />
-		<property name="server" ref="jmxConnector" />
-	</bean> -->
-
 </beans>
