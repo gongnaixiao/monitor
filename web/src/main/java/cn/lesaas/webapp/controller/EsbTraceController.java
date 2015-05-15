@@ -12,7 +12,7 @@ import cn.lesaas.osb.model.EsbTraceInfo;
 import cn.lesaas.osb.service.EsbTraceDAO;
 
 @Controller
-@RequestMapping("monitor/esbtrace")
+@RequestMapping("/monitor/esbtrace")
 public class EsbTraceController {
 	@Autowired
 	private EsbTraceDAO esb;
@@ -24,9 +24,8 @@ public class EsbTraceController {
 		int i = 0;
 		for (EsbTraceInfo inf : list) {
 			i++;
-			System.out.println(String.valueOf(inf.getEsbSvcSeqNo()));
+			System.out.println(String.valueOf(inf.getCsmId()));
 		}
-		System.out.println(i);
 		return list;
 	}
 }

@@ -32,7 +32,7 @@
 						<drop>true</drop>
 						<jdk5>true</jdk5>
 						<propertyfile>${project.build.testOutputDirectory}/jdbc.properties</propertyfile>
-						<!--<skip>${skipTests}</skip> -->
+						<skip>${skipTests}</skip>
 					</componentProperties>
 				</configuration>
 				<executions>
@@ -50,8 +50,8 @@
 						<version>${jdbc.version}</version>
 					</dependency>
 				</dependencies>
-			</plugin>
-			<plugin>
+			</plugin> 
+ 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>dbunit-maven-plugin</artifactId>
 				<version>1.0-beta-3</version>
@@ -63,8 +63,8 @@
 					<url>${jdbc.url}</url>
 					<src>src/test/resources/sample-data.xml</src>
 					<type>${dbunit.operation.type}</type>
-					<!--<schema>${dbunit.schema}</schema> -->
-					<!--<skip>${skipTests}</skip> -->
+					<schema>${dbunit.schema}</schema>
+					<skip>${skipTests}</skip>
 					<transaction>true</transaction>
 				</configuration>
 				<executions>
@@ -83,7 +83,7 @@
 						<version>${jdbc.version}</version>
 					</dependency>
 				</dependencies>
-			</plugin>
+			</plugin> 
 		</plugins>
 		<testResources>
 			<testResource>

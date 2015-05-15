@@ -55,12 +55,12 @@
 	<table width="100%" class="display" id="serverTable" cellspacing="0">
 		<thead>
 			<tr>
-				<th>name</th>
-				<th>health</th>
-				<th>clusterName</th>
-				<th>machineName</th>
-				<th>state</th>
-				<th>uptime</th>
+				<th><fmt:message key="weblogic.name" /></th>
+				<th><fmt:message key="weblogic.health" /></th>
+				<th><fmt:message key="weblogic.clusterName" /></th>
+				<th><fmt:message key="weblogic.machineName" /></th>
+				<th><fmt:message key="weblogic.state" /></th>
+				<th><fmt:message key="weblogic.uptime" /></th>
 			</tr>
 		</thead>
 		<tbody>
