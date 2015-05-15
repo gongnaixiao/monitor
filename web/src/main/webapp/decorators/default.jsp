@@ -50,6 +50,15 @@
 					</menu:useMenuDisplayer>
 				</div>
 			</c:if>
+			<c:if test="${currentMenu == 'MonitorMenu'}">
+				<div class="col-sm-2">
+					<menu:useMenuDisplayer name="Velocity" config="navlistMenu.vm"
+						permissions="rolesAdapter">
+						<menu:displayMenu name="MonitorMenu" />
+					</menu:useMenuDisplayer>
+				</div>
+			</c:if>
+
 			<decorator:body />
 		</div>
 	</div>

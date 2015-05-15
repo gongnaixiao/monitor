@@ -12,7 +12,7 @@ import cn.lesaas.osb.model.ServiceInf;
 import cn.lesaas.osb.service.MonitoredServices;
 
 @Controller
-@RequestMapping("/monitor/services")
+@RequestMapping("/monitor/servicesInfo")
 public class ServicesController {
 	@Autowired
 	private MonitoredServices service;
